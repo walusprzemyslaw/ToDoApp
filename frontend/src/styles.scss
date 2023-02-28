@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    height: 100%; 
+    background-color: #303030;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page-header {
+    background: #f1f1f1;
+}
+
+.page-header h1{
+    padding: 16px 0;
+    margin: 0;
+}
+
+.mt-05 {
+    margin-top: 0.5em;
+}
+
+.m-1 {
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+.options-cell {
+    display: flex;
+    justify-content: flex-end;
+    }
+
+.top-row{
+    padding: 1em 0;
+}
+
+.custom-form-field {
+    width: 100%;
+    margin-left: 1rem;
+}

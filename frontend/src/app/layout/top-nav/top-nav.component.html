@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+    <div class="container">
+        <a routerLink="/" mat-fab color="accent">
+            <mat-icon>checklist_rtl</mat-icon>
+        </a>
+        <a routerLink="/today" mat-mini-fab color="warn" *ngIf="anyTodayItems">
+            <mat-icon>priority_high</mat-icon>
+        </a>
+    </div>
+
+    <div class="container" style="text-align: right">
+        <button mat-icon-button [matMenuTriggerFor]="menuUser">
+            <mat-icon>person</mat-icon>
+        </button>
+        <mat-menu #menuUser="matMenu">
+            <button routerLink="/login" mat-menu-item *ngIf="!isLoggedIn">
+                <span>Login</span>
+            </button>
+            <button routerLink="/register" mat-menu-item *ngIf="!isLoggedIn">
+                <span>Register</span>
+            </button>
+            <button mat-menu-item (click)="onLogOut()" *ngIf="isLoggedIn">
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </div>
+</mat-toolbar>

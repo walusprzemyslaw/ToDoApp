@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Qs5kRE7RO6gsNgOhiXpqZkg1eI1mg2elAYh67so6kdE+nxV6s+8PmCt5BQWXLE9mbZjFCSSv1Ej3gMk5XD1o8Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\RWSwiss\\source\\repos\\aspnet-core-final-project\\src\\ToDo.Core\\ToDo.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\RWSwiss\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,53 @@
+<div class="container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button [matMenuTriggerFor]="menuStatus"
+                    [ngStyle]="{'color': element.status === 2 ? '#69f0ae' : element.status === 1 ? '#7b1fa2' : '#f44336' }">
+                    <mat-icon>radio_button_checked</mat-icon>
+                </button>
+                <mat-menu #menuStatus="matMenu">
+                    <button mat-menu-item (click)="onChangeStatus(element.toDoItemId, 2)">
+                        <mat-icon color="accent">radio_button_checked</mat-icon><span>Completed</span>
+                    </button>
+                    <button mat-menu-item (click)="onChangeStatus(element.toDoItemId, 1)">
+                        <mat-icon color="primary">radio_button_checked</mat-icon><span>In Progress</span>
+                    </button>
+                    <button mat-menu-item (click)="onChangeStatus(element.toDoItemId, 0)">
+                        <mat-icon color="warn">radio_button_checked</mat-icon><span>Not started</span>
+                    </button>
+                </mat-menu>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="options">
+            <th mat-header-cell *matHeaderCellDef style="text-align: right">
+                <mat-slide-toggle *ngIf="!todayMode" [(ngModel)]="visibilityOfFinishedItems"  (click)="onChangeVisibilityOfFinishedItems(visibilityOfFinishedItems ? visibilityOfFinishedItems : false)">Show completed</mat-slide-toggle>
+            </th>
+            <td mat-cell *matCellDef="let element" class="options-cell">
+                <button mat-mini-fab color="warn" class="m-1" (click)="onDelete(element.toDoItemId)">
+                    <mat-icon>delete_forever</mat-icon>
+                </button>
+                <a [routerLink]="['/item', element.toDoItemId]">
+                    <button mat-mini-fab color="accent" class="m-1">
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </a>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            [style.display]="visibilityOfFinishedItems || (row.status !== 2) ? 'table-row' : 'none' "></tr>>
+    </table>
+    <div style="text-align: right" *ngIf="!todayMode">
+        <a [routerLink]="['add']">
+            <button mat-fab color="primary" class="m-1">
+                <mat-icon>add</mat-icon>
+            </button>
+        </a>
+    </div>
+</div>

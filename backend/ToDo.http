@@ -1,0 +1,13 @@
+@url = http://localhost:5000
+
+###
+GET {{url}}
+
+###
+POST {{url}}/lists
+Content-Type: application/json
+
+{
+    "title": "Amazon",
+    "isHidden": true
+}

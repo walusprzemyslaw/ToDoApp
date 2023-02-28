@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row top-row">
+        <div class="col-xs-6">
+                <h2 class="mtl-1_white">Register</h2>
+        </div>
+    </div>
+<form #userDetailForm="ngForm">
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="row">
+                <mat-form-field class="example-full-width" class="custom-form-field">
+                    <mat-label>Name</mat-label>
+                    <input type="text" [(ngModel)]="username" matInput name="name" required>
+                    <mat-error>Name is required.</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="example-full-width" class="custom-form-field">
+                    <mat-label>Password</mat-label>
+                    <input type="password" [(ngModel)]="password" matInput name="password" required>
+                    <mat-error>Password is required.</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="example-full-width" class="custom-form-field">
+                    <mat-label>Confirmed password</mat-label>
+                    <input type="password" [(ngModel)]="confirmedPassword" matInput name="confirmedPassword" required>
+                    <mat-error>Confirmed password is required.</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 row end-xs" style="text-align: right">
+        <button mat-fab color="accent" [disabled]="userDetailForm.invalid" (click)="onSubmit()">
+            <mat-icon>person_add</mat-icon>
+        </button>
+    </div>
+</form>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row top-row">
+        <div class="col-xs-12 row end-xs">
+            <a routerLink="/lists" color="primary" mat-flat-button>
+                <mat-icon>chevron_left</mat-icon>Back
+            </a>
+        </div>
+    </div>
+    <form #listDetailForm="ngForm">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="row">
+                    <mat-form-field class="example-full-width" class="custom-form-field">
+                        <mat-label>Name</mat-label>
+                        <input type="text" matInput [(ngModel)]="list.name" name="name" required>
+                        <mat-error>Name is required.</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 row end-xs" style="text-align: right">
+            <button mat-fab color="accent" (click)="onSave()" [disabled]="listDetailForm.invalid">
+                <mat-icon>save</mat-icon>
+            </button>
+        </div>
+    </form>
+</div>

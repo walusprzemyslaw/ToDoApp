@@ -1,0 +1,61 @@
+<div class="container" *ngIf="isLoggedIn">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="options">
+            <th mat-header-cell *matHeaderCellDef style="text-align: right">
+                <mat-slide-toggle [(ngModel)]="showHidenLists">Show hidden</mat-slide-toggle>
+            </th>
+            <td mat-cell *matCellDef="let element" class="options-cell">
+                <button mat-icon-button [matMenuTriggerFor]="menu" class="mt-05">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <a [routerLink]="['/lists/edit', element.toDoListId]">
+                        <button mat-menu-item>
+                            <span>Edit</span>
+                        </button>
+                    </a>
+                    <button mat-menu-item (click)="onChangeVisibility(element.toDoListId)">
+                        <span>Show/Hide</span>
+                    </button>
+                    <button mat-menu-item (click)="onClone(element.toDoListId)">
+                        <span>Clone</span>
+                    </button>
+                    <button mat-menu-item (click)="onDelete(element.toDoListId)">
+                        <span>Remove</span>
+                    </button>
+                </mat-menu>
+                <a [routerLink]="['/list', element.toDoListId]">
+                    <button mat-mini-fab color="accent" class="m-1">
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </a>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            [style.display]="!showHidenLists && !row.visibility ? 'none' : 'table-row' "></tr>
+    </table>
+    <div style="text-align: right">
+        <a [routerLink]="['/lists/add']">
+            <button mat-fab color="primary" class="m-1">
+                <mat-icon>add</mat-icon>
+            </button>
+        </a>
+    </div>
+</div>
+<div class="container" *ngIf="!isLoggedIn">
+    <h2 style="text-align: center" class="mtl-1_white">Welcome to your new to-do app! This tool is designed to help you
+        stay organized and productive by providing a simple and intuitive way to manage your tasks!</h2>
+    <div style="text-align: center">
+        <button mat-fab color="warn" routerLink="/register" title= "Register" class="customStartButton">
+            <mat-icon>person_add</mat-icon>
+        </button>
+        <button mat-fab color="accent" routerLink="/login" title = "Login" class="customStartButton">
+            <mat-icon>login</mat-icon>
+        </button>
+    </div>
+</div>
