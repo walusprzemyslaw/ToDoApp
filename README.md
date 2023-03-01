@@ -1,5 +1,9 @@
-# ToDoApp
-To Do App done in C#/Angular
+#To run a backend in 
+ToDo.Api => dotnet ef database update and run
 
-Application under development
-currently on GitLab to complete the EPAM Academy
+#To run a frontend 
+npm i 
+npm run start
+
+#online varsion on available on:
+https://valditodoapp.web.app/
