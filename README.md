@@ -12,6 +12,6 @@ npm run start
 
 
 
-#online varsion on available on:
+#online version available on:
 
 https://valditodoapp.web.app/
